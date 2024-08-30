@@ -19,6 +19,10 @@ import p_img5 from './p_img5.png'
 import p_img6 from './p_img6.png'
 import p_img7 from './p_img7.png'
 import p_img52 from './p_img52.png'
+import exchange_icon from './exchange_icon.png'
+import quality_icon from './quality_icon.png'
+import support_icon from './support_img.png'
+
 
 export const assets = {
     logo,
@@ -31,7 +35,10 @@ export const assets = {
     cart_icon,
     menu_icon,
     dropdown_icon,
-    hero_img
+    hero_img,
+    exchange_icon,
+    quality_icon,
+    support_icon
 }
 
 export const products = [
