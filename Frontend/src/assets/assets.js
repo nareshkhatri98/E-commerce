@@ -124,11 +124,13 @@ export const products = [
         price: 75,
         images: [p_img7],
         category: "Men",
-        subCategory: "Accessories",
+        subCategory: "Topwear",
         size: ["One Size"],
         date: 176664000,
         bestseller: false
     },
+
+
     // Continue until you reach 52 products
     {
         _id: 'zzz',
@@ -141,5 +143,46 @@ export const products = [
         size: ["One Size"],
         date: 176699999,
         bestseller: true
-    }
+    },
+    {
+        _id: 'xxx',
+        name: 'Women Vintage Sunglasses',
+        description: 'Retro sunglasses with UV protection',
+        price: 90,
+        images: [p_img52],
+        category: "Accessories",
+        subCategory: "Sunglasses",
+        size: ["One Size"],
+        date: 176699999,
+        bestseller: true
+    },
+    {
+        _id: 'www',
+        name: 'Women Vintage Sunglasses',
+        description: 'Retro sunglasses with UV protection',
+        price: 90,
+        images: [p_img52],
+        category: "Accessories",
+        subCategory: "Sunglasses",
+        size: ["One Size"],
+        date: 176699999,
+        bestseller: true
+    },
+    {
+        _id: 'ppp',
+        name: 'Women Vintage Sunglasses',
+        description: 'Retro sunglasses with UV protection',
+        price: 90,
+        images: [p_img52],
+        category: "Accessories",
+        subCategory: "Sunglasses",
+        size: ["One Size"],
+        date: 176699999,
+        bestseller: true
+    },
+    
+    
+    
+    
+
 ];
