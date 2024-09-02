@@ -9,6 +9,7 @@ import cart_icon from  './cart_icon.png'
 import menu_icon from './menu_icon.png'
 import dropdown_icon from './dropdown_icon.png'
 import hero_img from './hero_img.png'
+import cross_icon from './cross_icon.png'
 
 // import image
 import p_img1 from './p_img1.png'
@@ -38,7 +39,8 @@ export const assets = {
     hero_img,
     exchange_icon,
     quality_icon,
-    support_icon
+    support_icon,
+    cross_icon
 }
 
 export const products = [
