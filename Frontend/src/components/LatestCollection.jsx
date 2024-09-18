@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
+import { products } from '../assets/assets';
+
 import Title from './Title';
 import ProductItems from './ProductItems';
 
@@ -29,7 +31,7 @@ const LatestCollection = () => {
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
           {
             latestProduct.map((item,index)=>(
-              <ProductItems key={index} id={item._id} image={item.images} name={item.name} price={item.price} />
+              <ProductItems key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
             ))
           }
 
