@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { products } from '../assets/assets'
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 export const ShopContext = createContext();
 
 
@@ -12,13 +13,13 @@ const ShopContextProvider = (props) => {
 
     // logic for add to cart...
     const [cartItems, setCartItems] = useState({});
+    const navigate = useNavigate();
 
     const addToCart = async (itemId, size) => {
-          if(!size)
-          {
+        if (!size) {
             toast.error("Please select the size");
             return;
-          }
+        }
 
         let cartData = structuredClone(cartItems);
         if (cartData[itemId]) {
@@ -31,45 +32,80 @@ const ShopContextProvider = (props) => {
 
             }
         }
-        else
-        {
-            cartData[itemId] ={};
+        else {
+            cartData[itemId] = {};
             cartData[itemId][size] = 1;
         }
         setCartItems(cartData)
 
     }
 
- 
 
-     const getCartCount = () =>{
+
+    const getCartCount = () => {
         let totalCount = 0;
-        for(const items in cartItems)
-        {
-            for( const item in cartItems[items])
-            {
-                try{
-                    if(cartItems[items][item] > 0)
-                    {
+        for (const items in cartItems) {
+            for (const item in cartItems[items]) {
+                try {
+                    if (cartItems[items][item] > 0) {
                         totalCount += cartItems[items][item];
                     }
 
-                }catch(error)
-                {
+                } catch (error) {
 
                 }
             }
         }
         return totalCount;
-     }
+    }
+    // for update data in quantity
+    // For updating the quantity of a cart item
+    const updateQuantity = async (itemId, size, quantity) => {
+        let cartData = structuredClone(cartItems);
 
-     const value =
-     {
-         products, currency, delivery_fee,
-         search, setSearch, showSearch, setShowSearch,
-         cartItems, addToCart,getCartCount
- 
-     }
+        // If quantity is 0, remove the size or item from the cart
+        if (quantity === 0) {
+            delete cartData[itemId][size];
+
+            // If no sizes are left for the item, remove the item entirely
+            if (Object.keys(cartData[itemId]).length === 0) {
+                delete cartData[itemId];
+            }
+        } else {
+            // Otherwise, update the quantity
+            cartData[itemId][size] = quantity;
+        }
+
+        // Update the cart items state
+        setCartItems(cartData)
+
+    }
+    // for total amount
+    const getCartAmount = () => {
+        let totalAmount = 0;
+        for (const items in cartItems) {
+            let itemInfo = products.find((product) => product._id === items);
+            for (const item in cartItems[items]) {
+                try {
+                    if (cartItems[items][item] > 0) {
+                        totalAmount += itemInfo.price * cartItems[items][item];
+                    }
+
+                } catch (error) {
+
+                }
+            }
+        }
+        return totalAmount
+    }
+
+    const value =
+    {
+        products, currency, delivery_fee,
+        search, setSearch, showSearch, setShowSearch,
+        cartItems, addToCart, getCartCount, updateQuantity, getCartAmount,navigate
+
+    }
     return (
         <ShopContext.Provider value={value}>
             {props.children}
