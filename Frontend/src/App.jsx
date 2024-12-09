@@ -12,6 +12,7 @@ import Product from './pages/Product';
 import PlaceOrder from './pages/PlaceOrder'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Login from './pages/Login';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/product/:productId' element ={<Product />}/>
          <Route path='/cart' element ={<Cart />}/>
          <Route path='/place-order' element ={<PlaceOrder />}/>
+         <Route path='/login' element={<Login/>}/>
 
         
       </Routes>

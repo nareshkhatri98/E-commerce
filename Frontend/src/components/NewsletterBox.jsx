@@ -4,10 +4,14 @@ const NewsletterBox = () => {
 
     const onSubmitHandler =(event) =>{
         event.preventDefault();
+        // Send email to server
+       fetch('/subscribe', { method: 'POST', body: JSON.stringify({ email: event.target[0].value }) })
+        console.log('Email sent successfully');
 
     }
   return (
     <div className='text-center'>
+        <hr />
         <p className='text-2xl font-medium text-gray-800'>Subscribe now & get 20% off</p>
         <p className='text-gray-400 mt-3'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut reiciendis eveniet beatae cons
